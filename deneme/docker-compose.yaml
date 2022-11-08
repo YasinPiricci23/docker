@@ -1,0 +1,12 @@
+version: '2.1'
+services:
+  nginx-service:
+    build:  ./website
+    depends_on:
+    - ruby-service
+  ruby-service:
+    build: ./webapp
+    depends_on:
+    - redis-service
+  redis-service:
+    image: redis
